@@ -44,7 +44,7 @@ define([
       },
       _bootstrapScrollSpy: function(){
         // initiate bootstrap scrollspy
-        $('body').scrollspy({ target: spyTarget, offset: 80 });
+        $('body').scrollspy({ target: spyTarget, offset: 150 });
         // run refresh since pulling in data to dom with custom events
         $('[data-spy="scroll"]').each(function(){
           $(this).scrollspy('refresh');

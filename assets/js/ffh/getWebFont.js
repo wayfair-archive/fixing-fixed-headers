@@ -16,10 +16,7 @@ define(['ffh/scrollEvents'], function(scrollEvents){
 
     // if we need lato, this is the JS version of google web fonts
     WebFontConfig = {
-      google: { families: [ 'Lato:400,700,900,400italic:latin' ] },
-      active: function(){
-        scrollEvents('#jq_ss_scrollspy');
-      }
+      google: { families: [ 'Lato:400,700,900,400italic:latin' ] }
     };
 
     (function() {
