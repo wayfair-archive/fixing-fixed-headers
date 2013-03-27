@@ -1,0 +1,570 @@
+/**
+ * DEFAULTS
+**/
+
+*{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+body{
+  color:#34495e;
+  font-family:'Lato', Arial, sans-serif;
+}
+pre{
+  margin:10px 0;
+}
+h2{
+  margin-bottom: 2px;
+  font-weight: 700;
+  font-size: 1.7em;
+}
+a{
+  color: #1ABC9C;
+  text-decoration: none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
+}
+a:hover {
+  color: #2ECC71;
+  text-decoration: none;
+  -webkit-transition:0.25s;
+  -moz-transition:0.25s;
+  -o-transition:0.25s;
+  transition:0.25s;
+}
+img{
+  padding:5px;
+  border:1px solid #BDC3C7;
+}
+label{
+  cursor:pointer;
+}
+
+/**
+ * BOOTSTRAP / FLAT UI STUFF
+**/
+
+.btn{
+  display:inline-block;
+  margin-bottom: 0;
+  border: none;
+  background: #34495E;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: white;
+  vertical-align: middle;
+  text-decoration: none;
+  text-shadow: none;
+  font-size: 16.5px;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #4E6D8D;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
+}
+.btn.btn-large{
+  padding: 13px 19px 12px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 17.5px;
+}
+.btn.btn-primary{
+  background:#1abc9c;
+}
+.btn.btn-info {
+  background-color: #3498DB;
+}
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+  background-color: #2FE2BF;
+}
+.btn.btn-info:hover, .btn.btn-info:focus {
+  background-color: #5DADE2;
+}
+.flat_ui{
+  display:inline-block;
+  width:100px;
+  height:100px;
+  background-size:100px 100px;
+}
+.flat_ui.bag{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/bag.png');
+}
+.flat_ui.book{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/book.png');
+}
+.flat_ui.calendar{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/calendar.png');
+}
+.flat_ui.clipboard{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/clipboard.png');
+}
+.flat_ui.colors{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/colors.png');
+}
+.flat_ui.compass{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/compass.png');
+}
+.flat_ui.gift{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/gift.png');
+}
+.flat_ui.infinity{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/infinity.png');
+}
+.flat_ui.mail{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/mail.png');
+}
+.flat_ui.map{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/map.png');
+}
+.flat_ui.paper{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/paper.png');
+}
+.flat_ui.retina{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/retina.png');
+}
+.flat_ui.share{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/share.png');
+}
+.flat_ui.time{
+  background-image:url('https://s3.amazonaws.com/fixing_fixed_headers/time.png');
+}
+
+/**
+ * FIXING_FIXED_HEADERS GENERAL LAYOUT
+**/
+
+.ffh_container{
+  margin:0 auto;
+  width:940px;
+}
+.ffh_left{
+  float:left;
+  width:250px;
+}
+.ffh_right{
+  float:right;
+  padding-left:40px;
+  width:690px;
+}
+.ffh_right section{
+  padding:20px;
+  border-top: 1px solid #ECF0F1;
+}
+section header{
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 2.2em;
+}
+section ul{
+  margin: 0px 0 10px 100px;
+  margin-left: 100px;
+  font-size: 1.5em;
+}
+img.ffh_presentation{
+  margin:20px 0;
+  width:100%;
+}
+p.ffh_subtopic{
+  font-style:italic;
+  font-size:1.3em;
+  color:#E67E22;
+}
+/* went a bit crazy on these... */
+p.ffh_subtopic + img,
+p.ffh_subtopic + a > img,
+img + p.ffh_subtopic,
+a + p.ffh_subtopic{
+  margin-top:0;
+}
+p.ffh_subtopic span{
+  font-size:1em;
+  color:#BDC3C7;
+}
+
+/**
+ * FIXING_FIXED_HEADERS HEADER
+**/
+
+/* basic grid system for the header. */
+/* completely unnecessary, just showing */
+
+.ffh_hd_grid_1  { width:188px;        }
+.ffh_hd_grid_2  { width:376px;        }
+.ffh_hd_grid_3  { width:564px;        }
+.ffh_hd_grid_4  { width:752px;        }
+.ffh_hd_grid_5  { width:940px;        }
+.ffh_hd_off_1   { margin-left:188px;  }
+.ffh_hd_off_2   { margin-left:376px;  }
+.ffh_hd_off_3   { margin-left:564px;  }
+.ffh_hd_off_4   { margin-left:752px;  }
+
+/* outer container to stretch page */
+.ffh{
+  top:0;
+  right:0;
+  left:0;
+  z-index:10;
+  min-width:940px;
+  min-height:40px;
+  background:#34495e;
+  font-size:18px;
+}
+
+/* to add/remove fixed positioning to scrollspy / top nav */
+
+.ffh_fixed{
+  position:fixed;
+}
+
+/* spacer to compensate height when fixed */
+
+.ffh_spacer{
+  height:40px;
+}
+
+/* adjustments when not optimal conditions */
+
+@media only screen and (max-width:940px){
+  .ffh.ffh_fixed{
+    position:relative;
+  }
+  .ffh_spacer{
+    display:none;
+  }
+  .jq_ffh_scrollspy{
+    display:none;
+  }
+  .ffh_right{
+    padding:0;
+    width:100%;
+  }
+}
+@media only screen and (max-height:450px){
+  .jq_ffh_scrollspy{
+    display:none;
+  }
+}
+
+/* nav that holds the header buttons, etc */
+
+.ffh_nav{
+  position:relative;
+  left:0;
+  display:block;
+  float:left;
+  margin:0;
+  padding:0;
+}
+.ffh_nav > li{
+  position:relative;
+  float:left;
+  border-left:1px solid #2c3e50;
+  text-align:center;
+  line-height:1.1;
+}
+.ffh_nav > li a:not(.ffh_basic_link){
+  display:block;
+  padding:10px 15px;
+  height:40px;
+  color:#fff;
+  text-decoration:none;
+}
+.ffh_nav > li a:not(.ffh_basic_link):hover{
+  color:#1abc9c;
+}
+.ffh_nav > li:last-child,
+.ffh_hd_before_off{
+  border-right:1px solid #2c3e50;
+}
+
+/* the dropdown header elements */
+
+.ffh_dropdown{
+  position:absolute;
+  display:none;
+  margin:0;
+  padding:15px;
+  width:100%;
+  background:#ecf0f5;
+  list-style:none;
+}
+.ffh_dropdown > li{
+  padding-top:10px;
+  text-align:left;
+  font-size:.85em;
+  line-height:1.4;
+}
+.ffh_dropdown > li:first-child{
+  padding:0;
+}
+
+/* the light switch labels -- taken from flat ui */
+
+.ffh_toggle_label{
+  display: block;
+  float: left;
+  margin:5px 0;
+  width:50%;
+}
+.ffh_toggle{
+  position:relative;
+  display:inline-block;
+  float:right;
+  overflow:hidden;
+  width:65px;
+  height:29px;
+  border-radius:60px;
+  background-color:#34495e;
+  color:#fff;
+}
+.ffh_toggle_off{
+  background-color:#cbd2d8;
+}
+.ffh_toggle .ffh_toggle_radio{
+  position:absolute;
+  left:65px;
+  display:block;
+  margin:0;
+  padding:6px 30px 6px 15px;
+  height:30px;
+  background:url('https://s3.amazonaws.com/fixing_fixed_headers/icon-on.png') 35px 0 no-repeat;
+  color:#1abc9c;
+  text-align:center;
+  font-weight:700;
+  font-size:.85em;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+.ffh_toggle.ffh_toggle_off .ffh_toggle_radio{
+  left:0;
+  padding:6px 15px 6px 30px;
+  background:url('https://s3.amazonaws.com/fixing_fixed_headers/icon-off.png') 0 0 no-repeat;
+  color:#fff;
+}
+.ffh_toggle .ffh_toggle_radio:first-child{
+  left:0;
+}
+.ffh_toggle.ffh_toggle_off .ffh_toggle_radio:first-child{
+  left:-65px;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SUBHEADER
+**/
+
+.ffh_subhead{
+  position: relative;
+  display: block;
+  padding: 40px 0 80px;
+  width:100%;
+}
+.ffh_subhead h1{
+  margin:30px 0;
+  text-align:center;
+  letter-spacing: -2px;
+  font-weight: 900;
+  font-size: 90px;
+  line-height: 100px;
+}
+.ffh_subhead small{
+  display: block;
+  padding-top: 20px;
+  color:#bdc3c7;
+  letter-spacing: -1px;
+  font-weight: 400;
+  font-size: 30px;
+  line-height:1;
+}
+.ffh_subhead p{
+  margin:40px 0 0;
+  text-align:center;
+}
+.ffh_subhead a:first-child{
+  margin-right:10px;
+}
+section .ffh_tagline h2{
+  float: left;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SCROLLSPY
+**/
+
+.ffh_scrollspy{
+  margin:0;
+  padding:0;
+  width:250px;
+  background:#fff;
+  list-style:none;
+}
+.ffh_scrollspy.ffh_fixed{
+  top:80px;
+}
+.ffh_scrollspy a{
+  display:block;
+  padding:8px 14px;
+  border:1px solid #ECF0F1;
+  border-bottom:none;
+  text-decoration:none;
+}
+.ffh_scrollspy li:last-child a{
+  border-bottom:1px solid #ECF0F1;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 1
+**/
+
+.ffh_s1_instructions{
+float: left;
+margin-left: 20px;
+  width: 490px;
+}
+.ffh_s1_introduction{
+  margin:25px 0;
+}
+.ffh_s1_introduction div:first-child{
+  margin-bottom:25px;
+}
+.ffh_s1_bio{
+  margin:0 25px;
+}
+.ffh_s1_bio p{
+  margin:15px 0;
+  color:#E67E22;
+  text-align:right;
+  font-size:1.5em;
+}
+.ffh_s1_bio ul{
+  margin-left: 0;
+  padding: 0;
+  width: 385px;
+  font-size: 1.1em;
+}
+.ffh_s1_bio li{
+  color:#95A5A6;
+  list-style:none;
+}
+.ffh_s1_bio.ffh_float_right li{
+  text-align: right;
+}
+.ffh_s1_wayfair{
+  margin-bottom:30px;
+}
+.ffh_s1_wayfair img:last-child{
+  float:right;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 2
+**/
+
+.ffh_s2 .ffh_tagline h2{
+  color: #E74C3C;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 3
+**/
+
+.ffh_s3 .ffh_tagline h2 span:first-child{
+  color:#2ECC71;
+}
+.ffh_s3 .ffh_tagline h2 span:last-child{
+  color:#C0392B;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 4
+**/
+
+.ffh_s4 .ffh_tagline h2{
+  color:#1ABC9C;
+}
+.ffh_s4 p{
+  margin:0 0 10px 140px;
+  font-size:1.4em;
+  color:#C0392B;
+  font-style:italic;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 5
+**/
+
+.ffh_s5 .ffh_tagline h2{
+  color:#3498DB;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 6
+**/
+
+
+.ffh_s6 .ffh_tagline h2{
+  color:#27AE60;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 7
+**/
+
+.ffh_s7 .ffh_tagline h2{
+  color:#F39C12;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 8
+**/
+
+.ffh_s8 .ffh_tagline h2{
+  color:#3498DB;
+}
+
+/**
+ * FIXING_FIXED_HEADERS SECTION 9
+**/
+
+.ffh_s9 img{
+  margin:75px auto 25px;
+  border:none;
+  display: block;
+}
+.ffh_s9 p{
+  text-align:center;
+  font-size:2em;
+}
+
+/**
+ * FIXING_FIXED_HEADERS UTILITY
+**/
+
+.ffh_float_left{
+  float:left;
+}
+.ffh_float_right{
+  float:right;
+}

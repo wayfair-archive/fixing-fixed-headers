@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Fixing Fixed Headers</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- - - - - - - - CSS - - - - - - - -->
+
+    <link rel="stylesheet" href="assets/css/vendor/html5_bp_start.css" >
+    <link rel="stylesheet" href="assets/css/ffh.css" >
+    <link rel="stylesheet" href="assets/css/ffh_highlight.css">
+    <link rel="stylesheet" href="assets/css/vendor/html5_bp_end.css" >
+
+  </head>
+  <body>
+
+    <!--[if lt IE 9]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="jq_ffh ffh ffh_fixed">
+      <div class="ffh_container">
+        <ul class="jq_ffh_nav ffh_nav">
+          <!-- header content will load dynamically via ajax call -->
+        </ul>
+      </div>
+    </div>
+    <div class="jq_ffh_spacer ffh_spacer"></div>
+
+    <header id="section_0" class="ffh_subhead">
+      <div class="ffh_container">
+        <h1>
+          <b>Fixing Fixed Headers</b>
+          <small>Presentation by Nick Dreckshage and Marcus Labrecque</small>
+        </h1>
+        <p>
+          <a href="https://github.com/wayfair/fixing-fixed-headers/archive/master.zip" class="btn btn-primary btn-large">
+            Download Source Code
+          </a>
+          <a href="https://github.com/wayfair/fixing-fixed-headers/" target="_blank" class="btn btn-info btn-large">
+            View on Github
+          </a>
+        </p>
+      </div>
+    </header>
+
+    <div class="ffh_container clearfix">
+
+      <div class="ffh_left">
+        <div id="jq_ss_scrollspy">
+          <ul class="jq_ffh_scrollspy ffh_scrollspy ss_nav">
+            <li class="jq_ffh_api hidden" data-api="0"><a href="#section_0"></a></li>
+            <li class="jq_ffh_api" data-api="1"><a href="#section_1">Introduction</a></li>
+            <li class="jq_ffh_api" data-api="2"><a href="#section_2">Overview</a></li>
+            <li class="jq_ffh_api" data-api="3"><a href="#section_3">Examples</a></li>
+            <li class="jq_ffh_api" data-api="4"><a href="#section_4">Determine Purpose</a></li>
+            <li class="jq_ffh_api" data-api="5"><a href="#section_5">Code (Basic)</a></li>
+            <li class="jq_ffh_api" data-api="6"><a href="#section_6">Code (Intermediate)</a></li>
+            <li class="jq_ffh_api" data-api="7"><a href="#section_7">Code (Intermediate +)</a></li>
+            <li class="jq_ffh_api" data-api="8"><a href="#section_8">Before/After</a></li>
+            <li class="jq_ffh_api" data-api="9"><a href="#section_9">Conclusion/Questions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ffh_right">
+        <section id="section_1" class="ffh_s1 clearfix">
+          <header>Introduction</header>
+          <div class="clearfix">
+            <div class="flat_ui calendar ffh_float_left"></div>
+            <div class="ffh_s1_instructions">
+              <span>To run locally, <a href="https://github.com/wayfair/fixing-fixed-headers/archive/master.zip">download source</a> and run over local server. Like...</span>
+              <pre><code>$ python -m SimpleHTTPServer 8000</code></pre>
+            </div>
+          </div>
+          <div class="ffh_s1_introduction">
+            <div class="clearfix">
+              <img src="https://s3.amazonaws.com/fixing_fixed_headers/marcus.jpg" width="162" height="162" alt="Marcus Labrecque" class="ffh_float_right">
+              <div class="ffh_s1_bio ffh_float_right">
+                <p>Marcus Labrecque</p>
+                <ul class="clearfix">
+                  <li>Product Manager for Wayfair and Joss &amp; Main</li>
+                </ul>
+              </div>
+            </div>
+            <div class="clearfix">
+              <img src="https://s3.amazonaws.com/fixing_fixed_headers/nick.jpg" width="162" height="200" alt="Nick Dreckshage" class="ffh_float_right">
+              <div class="ffh_s1_bio ffh_float_right">
+                <p>Nick Dreckshage</p>
+                <ul class="clearfix">
+                  <li>Front End / JavaScript Engineer for Wayfair</li>
+                  <li><a href="https://github.com/ndreckshage/roughdraft.js" target="_blank" class="ffh_basic_link">roughdraft.js</a></li>
+                  <li><a href="https://github.com/ndreckshage/jquery-remember" target="_blank" class="ffh_basic_link">$.remember</a></li>
+                  <li><a href="http://nickdreckshage.com" target="_blank" class="ffh_basic_link">blog</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ffh_s1_wayfair">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/wayfair_b_1.jpg" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="287" height="287" alt="What it looks like..." class="lazy">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/wayfair_b_2.jpg" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="287" height="287" alt="Not what it looks like..." class="lazy">
+          </div>
+          <pre><code class="javascript">// if you want to check out jossandmain without signing up, copy and paste this to console...<br/><br/>$('.yui3-overlay-mask, .yui3-modal').remove();<br/>$('.footer_links').removeClass('logged_out');</code></pre>
+        </section>
+        <section id="section_2" class="ffh_s2 clearfix">
+          <header>Overview</header>
+          <div class="ffh_tagline clearfix">
+            <div class="flat_ui infinity ffh_float_left"></div>
+            <h2>Theme -- Fixed header as a toolbar</h2>
+          </div>
+          <ul>
+            <li>Joss Header Project</li>
+            <li>Fitt's Law</li>
+            <li>Minimal scrolling</li>
+            <li>Sticky menus study</li>
+            <li>Meta toolbar!</li>
+          </ul>
+        </section>
+        <section id="section_3" class="ffh_s3 clearfix">
+          <header>Examples</header>
+          <div class="ffh_tagline clearfix">
+            <div class="flat_ui colors ffh_float_left"></div>
+            <h2><span>The good.</span>&nbsp;<span>The bad.</span></h2>
+          </div>
+          <ul>
+            <li>Easy basic implementation</li>
+            <li>Have a purpose</li>
+            <li>Do what Facebook does</li>
+          </ul>
+          <p class="ffh_subtopic">Fab &mdash; Consistent?</p>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/fab_1.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/fab_1.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="388" alt="Fab 1" class="lazy ffh_presentation" />
+          </a>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/fab_2.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/fab_2.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="144" alt="Fab 2" class="lazy ffh_presentation" />
+          </a>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/fab_3.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/fab_3.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="171" alt="Fab 3" class="lazy ffh_presentation" />
+          </a>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/fab_4.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/fab_4.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="451" alt="Fab 4" class="lazy ffh_presentation" />
+          </a>
+          <p class="ffh_subtopic">One Kings Lane &mdash; Breadcrumbs great; almost there.</p>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/okl_1.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/okl_1.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="135" alt="OKL 1" class="lazy ffh_presentation" />
+          </a>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/okl_2.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/okl_2.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="303" alt="OKL 2" class="lazy ffh_presentation" />
+          </a>
+          <p class="ffh_subtopic">Pinterest &mdash; Great nav; execution?</p>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/pin.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/pin.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="181" alt="Pin" class="lazy fh_presentation" />
+          </a>
+          <p class="ffh_subtopic">AirBNB &mdash; UX ideal; execution?</p>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/air_bnb.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/air_bnb.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="176" alt="Air BNB" class="lazy ffh_presentation">
+          </a>
+        </section>
+        <section id="section_4" class="ffh_s4 clearfix">
+          <header>Determine Purpose</header>
+          <div class="ffh_tagline clearfix">
+            <div class="flat_ui map ffh_float_left"></div>
+            <h2>What does the user need?</h2>
+          </div>
+          <ul>
+            <li>It has what you want, when you want</li>
+            <li>Everything is in same location</li>
+            <li>The tools you have do what you want them to</li>
+          </ul>
+          <p>Risks...</p>
+          <ul>
+            <li>Risk of distraction/annoyance</li>
+            <li>Restrictions on placement</li>
+            <li>Not ideal for mobile unless done perfectly</li>
+          </ul>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/wireframes_1.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/wireframes_1.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="374" alt="Wireframes 1" class="lazy ffh_presentation">
+          </a>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/wireframes_2.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/wireframes_2.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="363" alt="Wireframes 1" class="lazy ffh_presentation">
+          </a>
+        </section>
+        <section id="section_5" class="ffh_s5 clearfix">
+          <header>Code (Basic)</header>
+          <div class="ffh_tagline clearfix">
+            <div class="flat_ui book ffh_float_left"></div>
+            <h2>Dangerously easy...</h2>
+          </div>
+          <ul>
+            <li>The minimum code</li>
+            <li>Bootstrap/Boilerplate</li>
+            <li>Fluid grids vs. fixed width</li>
+            <li>Fixed + responsive header on fixed width?</li>
+            <li>Challenges with a fixed header</li>
+          </ul>
+          <p class="ffh_subtopic">Minimum code</p>
+          <pre><code class="css">/* all it takes is css */<br/><br/>header{<br/>  position:fixed;<br/>  top:0;<br/>  z-index:5;<br/>  width:100%;<br/>  height:50px;<br/>  background:#e0e0e0;<br/>}<br/>section{<br/>  margin-top:50px;<br/>  height:1000px;<br/>  background:#eee;<br/>}</code></pre>
+          <p class="ffh_subtopic">Bootstrap + Fluid Grids <span>(If it works for you, go for it. Bootstrap's great.)</span></p>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/bootstrap.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/bootstrap.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="413" alt="Bootstrap" class="lazy ffh_presentation">
+          </a>
+          <p class="ffh_subtopic">Fixed + responsive on fixed width? No.</p>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/joss.png" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/joss.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="208" alt="Joss" class="lazy ffh_presentation">
+          </a>
+        </section>
+        <section id="section_6" class="ffh_s6 clearfix">
+          <header>Code (Intermediate)</header>
+          <div class="ffh_tagline clearfix">
+            <div class="flat_ui clipboard ffh_float_left"></div>
+            <h2>Improving on basic implementation...</h2>
+          </div>
+          <ul>
+            <li>Scroll listeners</li>
+            <li>Media Queries</li>
+            <li>Modernizr</li>
+            <li>Zoom detection</li>
+            <li>Touch Devices</li>
+            <li>Hover Intent</li>
+            <li>Fallback for Non-JavaScript (Not this site!)</li>
+          </ul>
+          <p class="ffh_subtopic">Scroll listeners</p>
+          <pre><code class="javascript">// if we want an offset, either for side nav (like in demo), or nav that becomes fixed on scroll (like pinterest/etc)<br/><br/>function checkOffset(){<br/>  return $(window).scrollTop() > 40 ? true : false;<br/>}</code></pre>
+          <p class="ffh_subtopic">Media Queries <span>(assets/css/ffh.css)</span></p>
+          <pre><code class="css">/**<br/>this gets rid of unnecessary fixed elements, and disables fixed for the others. if you have a fixed width site, it is probably worse ui to have the header fluid.<br/>*/<br/><br/>@media only screen and (max-width:940px){<br/>  .ffh.ffh_fixed{<br/>    position:relative;<br/>  }<br/>  .ffh_spacer{<br/>    display:none;<br/>  }<br/>  .jq_ffh_scrollspy{<br/>    display:none;<br/>  }<br/>  .ffh_right{<br/>    padding:0;<br/>    width:100%;<br/>  }<br/>}<br/>@media only screen and (max-height:450px){<br/>  .jq_ffh_scrollspy{<br/>    display:none;<br/>  }<br/>}</code></pre>
+          <p class="ffh_subtopic">Modernizr <span>(assets/js/ffh/fixedCheck.js)</span></p>
+          <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/modernizr.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="546" alt="Modernizr" class="lazy ffh_presentation">
+          <pre><code class="javascript">// if media queries not supported, replicate via js<br/><br/>var mediaQueries = Modernizr.mq('only all'),<br/>    ieWidth = null,<br/>    ieHeight = null,<br/>    $w = $(window);<br/><br/>// CHECK SOURCE FOR ACTUAL IMPLEMENTATION. this would need to be in a function call...<br/><br/>if (!mediaQueries) {<br/>  ieWidth = $w.width();<br/>  ieHeight = $w.height();<br/>}<br/><br/>// will do the checks in a minute...</code></pre>
+          <p class="ffh_subtopic">Zoom detection <span>(assets/js/ffh/fixedCheck.js)</span></p>
+          <pre><code class="javascript">// determine zoom level on  (again, check source for actual implementation)<br/><br/>function checkZoom(){<br/>  return detectZoom.zoom();<br/>}<br/><br/>// ...<br/><br/>// then something like this...<br/><br/>if (zoom &gt; 1 || (!mediaQueries &amp;&amp; ieViewport &lt; 940)){<br/>  $element.removeClass('fixed');<br/>}</code></pre>
+          <p class="ffh_subtopic">Touch -- again with Modernizr <span>(assets/js/ffh/dropDown.js)</span></p>
+          <pre><code class="javascript">var touchEnabled = Modernizr.touch;<br/><br/>// then you can run checks against touch devices, and decide whether to hover, or have click dropdowns, for example<br/><br/>if (touchEnabled){ // ...</code></pre>
+          <p class="ffh_subtopic">Hover Intent and Amazon's hover <span>(assets/js/ffh/dropDown.js)</span></p>
+          <pre><code class="javascript">// you can also pass in options to change the sensitivity/timing settings<br/><br/>$('header').hoverIntent(initDropDown, 'li');</code></pre>
+          <p class="ffh_subtopic">Fallback if JS Disabled</p>
+          <pre><code class="css">/* target with Modernizr. if you have a dropdown menu with important header information, for example. */<br/><br/>.no_js header ul:hover div{<br/>  display:block;<br/>}</code></pre>
+        </section>
+        <section id="section_7" class="ffh_s7 clearfix">
+          <header>Code (Intermediate +)</header>
+          <div class="ffh_tagline clearfix">
+            <div class="flat_ui compass ffh_float_left"></div>
+            <h2>Make it modular...</h2>
+          </div>
+          <ul>
+            <li>Grid format</li>
+            <li>Page specific</li>
+            <li>API</li>
+          </ul>
+          <p class="ffh_subtopic">Simple Grid <span>(assets/css/ffh.css)</span></p>
+          <pre><code class="css">.ffh_hd_grid_1  { width:188px;        }<br/>.ffh_hd_grid_2  { width:376px;        }<br/>.ffh_hd_grid_3  { width:564px;        }<br/>.ffh_hd_grid_4  { width:752px;        }<br/>.ffh_hd_grid_5  { width:940px;        }<br/>.ffh_hd_off_1   { margin-left:188px;  }<br/>.ffh_hd_off_2   { margin-left:376px;  }<br/>.ffh_hd_off_3   { margin-left:564px;  }<br/>.ffh_hd_off_4   { margin-left:752px;  }</code></pre>
+          <p class="ffh_subtopic">Serving what is relevant to the page</p>
+          <pre><code class="php">&lt;?php<br/><br/>// language doesnt matter. important to think of the header as more than just a 'page block.' it could be part of a header specific function library where you can easily populate with relevant data.<br/><br/>private static function switch_content($page){<br/>  switch($page) {<br/>    case self::HOME_PAGE :<br/>      self::fill_hd($widget_1 = true, $widget_2 = false);<br/>      break;<br/>    case self::ABOUT_US :<br/>      self::fill_hd(false, true);<br/>      break;<br/>    default :<br/>      self::fill_hd(true, true);<br/>      break;<br/>  }<br/>}<br/>?&gt;</code></pre>
+          <p class="ffh_subtopic">Using an API <span>(assets/js/ffh/api.js and api/ffh.json)</p>
+          <pre><code class="javascript">// this site is using a fake json api (not real content from server). but this could theoretically work with ember.js/backbone/etc. could come in handy if using infinite scroll.<br/><br/>var api;<br/><br/>$.getJSON('/api/ffh.json', function(data){<br/>  $('#ss').on('activate', '.jq_ffh_api', function(){<br/>    api = $(this).data('api');<br/>    $('.jq_ffh_nav').html(data[api]);<br/>    // init non-delegated js (config dropdown) in header<br/>    initToggles('.ffh_toggle', 'ffh_toggle_off');<br/>  });<br/>});</code></pre>
+        </section>
+        <section id="section_8" class="ffh_s8 clearfix">
+          <header>Before/After</header>
+          <div class="ffh_tagline clearfix">
+            <div class="flat_ui time ffh_float_left"></div>
+            <h2>Worth all the trouble? Hopefully...</h2>
+          </div>
+          <ul>
+            <li>Side by Side</li>
+            <li>Google Analytics</li>
+          </ul>
+          <a href="https://s3.amazonaws.com/fixing_fixed_headers/sidebyside.jpg" target="_blank">
+            <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/sidebyside.jpg" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="610" height="276" alt="Side by Side" class="lazy ffh_presentation">
+          </a>
+        </section>
+        <section id="section_9" class="ffh_s9 clearfix">
+          <header>Conclusion/Questions</header>
+          <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/flat_ui.png" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="266" height="196" class="lazy" alt="Flat UI">
+          <p>If you liked the UI, <a href="http://designmodo.github.com/Flat-UI/" target="_blank">download it.</a></p>
+          <img data-original="https://s3.amazonaws.com/fixing_fixed_headers/bfed.jpg" src="https://s3.amazonaws.com/fixing_fixed_headers/lazyload.gif" width="190" height="143" class="lazy" alt="Front End Developers">
+        </section>
+      </div>
+
+    </div>
+
+    <!-- JAVASCRIPT THROUGH REQUIRE.JS -->
+    <script data-main="assets/js/ffh" src="assets/js/vendor/requirejs-2.1.5.min.js"></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-39633636-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

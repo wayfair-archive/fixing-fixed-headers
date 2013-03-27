@@ -1,0 +1,198 @@
+/*****  width *****/
+
+$standard:                            959px; 
+$tablet:                              767px;
+$phone:                               479px;
+
+/***** height *****/
+
+$break_1:                             330px;
+$break_2:                             220px;
+
+/***** browser height cut 1 *****/
+
+@media only screen and (max-height:$break_1){
+  body{
+    > header{
+      padding:0 $breathing_room;
+      hgroup{
+        h1{
+          margin:.33em 0;
+        }
+        h2{
+          margin:.33em 0;
+        }
+      }
+      nav{
+        ul{
+          margin:.33em 0;
+          a{
+            display:inline-block;
+            margin:0 0 4px;
+          }
+          li{
+            padding:0 5px;
+            border:$minimalist_border;
+            float:inherit;
+            clear:inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+/***** browser height cut 2 *****/
+
+@media only screen and (max-height:$break_2){
+  body{
+    > header{
+      nav{
+        ul{
+          a{
+            &:nth-child(n+4){
+              display:none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/***** browser/standard width cut 1 *****/
+
+@media only screen and (max-width:$standard){
+  body{
+    > header{
+      hgroup{
+        h2{
+          width:200px;
+        }
+      }
+      nav{
+        ul{
+          width:200px;
+        }
+      }
+    }
+  }
+}
+
+/***** browser & ipad/tablet *****/
+
+@media only screen and (max-width:$tablet){
+  pre{
+    code{
+      width:inherit;
+    }
+  }
+  body{
+    > header{
+      background:$white;
+      padding:0;
+      border-right:none;
+      border-bottom:$minimalist_border;
+      width:100%;
+      height:54px;
+      top:0;
+      hgroup{
+        border-bottom:$minimalist_border;
+        padding:0 0 0 $breathing_room;
+        height:30px;
+        h1{
+          @include freight_bold(1.2em);
+          display:inline-block;
+          margin:0;
+          vertical-align:middle;
+        }
+        h2{
+          display:inline-block;
+          margin:0;
+          vertical-align:middle;
+          span:nth-child(2){
+            display:none;
+          }
+        }
+      }
+      nav{
+        margin:0;
+        height:23px;
+        ul{
+          margin:0;
+          width:100%;
+          height:100%;
+          a{
+            display:inline-block;
+            margin:0;
+            padding:0 $breathing_room;
+            border-right:$minimalist_border;
+            height:100%;
+            &:nth-child(n+4){
+              display:none;
+            }
+          }
+          li{
+            padding:0;
+            border:0;
+            float:inherit;
+            clear:inherit;
+          }
+        }
+      }
+    }
+    > section{
+      margin:$breathing_room*2+4 0 0;
+      time{
+        @include freight_bold(.9em);
+        position:fixed;
+        padding:2px 0 0;
+        margin:0;
+        border:0;
+        height:23px;
+        top:30px;
+        right:$breathing_room;
+      }
+      .pages{
+        display:block;
+        padding:15px 0;
+        border-bottom:$minimalist_border;
+        float:inherit;
+        text-align:center;
+        .next{
+          padding-left:15px;
+        }
+        .prev{
+          padding-right:15px;
+        }
+      }
+      footer{
+        display:block;
+        padding:15px 0;
+        float:inherit;
+        text-align:center;
+      }
+    }
+  }
+}
+
+/***** browser & iphone/smartphones *****/
+
+@media only screen and (max-width:$phone){
+  body{
+    min-width:320px;
+    > header{
+      min-width:320px;
+      hgroup{
+        h2{
+          display:none;
+        }
+      }
+    }
+    > section{
+      time{
+        display:none;
+      }
+    }
+  }
+}
